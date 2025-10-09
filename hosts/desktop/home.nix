@@ -15,12 +15,10 @@
         ../../home/system/java
 
         # Programs
+	    ../../home/programs/caelestia
         ../../home/programs/discord
         ../../home/programs/ghostty
         ../../home/programs/spicetify
-
-        # Shell
-        ../../home/quickshell
     ];
 
     home = {

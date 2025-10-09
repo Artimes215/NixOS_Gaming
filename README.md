@@ -3,7 +3,8 @@
 <img src=".github/previews/Monitor_Preview_08-43-21.png" alt="Desktop Showcase" width="768">
 </center>
 
-
+> [!NOTE]
+> This Nix configuration is possible thanks to [soramanew](https://github.com/soramanew) and their work creating (Calestia)[https://github.com/caelestia-dots/shell].  All I have done is use it and made some minor modifications elsewhere to put together a working system for myself.
 
 # Installation
 Presuming you're starting from a live boot with nothing yet done to your machine, you'll want to install NixOS on your machine from a **minimal installation**.
@@ -53,6 +54,9 @@ There are two included hosts that you need to be mindful of; one for a desktop c
 
 While it isn't *required*, it's strongly advised that you take a look at either of them and modify them to your needs.
 
+> [!NOTE]
+> This will be removed in the future and the repository will be updated to default to a single system.
+
 
 
 ## Notice
@@ -64,16 +68,3 @@ Ths install script will likely take several minutes.
 
 The installer will create symlinks and overwrite existing files.
 > Please backup your current configs before installing.
-
-
-
-## Current Status
-Some things are, unfortunately, broken for the time being.
-
-- Weather sometimes works and sometimes doesn't work in the dashboard drop down
-- Performance tab in the dashboard does not currently update CPU or GPU temps (missing driver or package or something)
-
-
-
-## To Do
-- Implement silent booting

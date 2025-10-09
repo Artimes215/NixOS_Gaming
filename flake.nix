@@ -1,8 +1,6 @@
 {
-  #
-
   description = ''
-    Personal dotfiles for using Hyprland with QuickShell on NixOS.
+    Personal dotfiles for using Hyprland via Caelestia/QuickShell on NixOS.
     Intended to be modular for easy customizability.
   '';
 
@@ -20,9 +18,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    quickshell = {
-      url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
-      inputs.nixpkgs.follows = "nixpkgs";
+    caelestia-shell = {
+      url = "github:caelestia-dots/shell";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
 
     spicetify-nix = {
@@ -35,7 +33,7 @@
     nixcord.url = "github:kaylorben/nixcord";
   };
 
-  outputs = inputs@{ nixpkgs, quickshell, spicetify-nix, ... }:
+  outputs = inputs@{ nixpkgs, spicetify-nix, ... }:
   {
     nixosConfigurations = {
       athena = nixpkgs.lib.nixosSystem {
@@ -67,7 +65,7 @@
 
           {
             environment.systemPackages = [
-              quickshell.packages.x86_64-linux.default
+              
             ];
           }
 

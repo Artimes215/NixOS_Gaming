@@ -45,17 +45,17 @@
             useOSProber = false;
             splashImage = null;
             
-            efiSupport = true;
-            efiInstallAsRemovable = true;
+            efiSupport = false;
+            # efiInstallAsRemovable = true;
 
-            # device = "/dev/sda";
-            device = "nodev";
+            device = "/dev/sda";
+            # device = "nodev";
         };
 
-        efi = {
-          canTouchEfiVariables = false; 
-          efiSysMountPoint = "/boot"; 
-        };
+        # efi = {
+        #   canTouchEfiVariables = false; 
+        #   efiSysMountPoint = "/boot"; 
+        # };
       };
     };
 }

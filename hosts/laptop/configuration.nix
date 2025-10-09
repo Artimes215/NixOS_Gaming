@@ -22,6 +22,19 @@
     ./variables.nix
   ];
 
+  # Steam installation here since it has linking issues and w/e
+  programs = {
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+    };
+    gamemode = {
+      enable = true;
+    };
+  };
+
+  # Nix pkg buffer size when downloading
   nix.settings = {
     download-buffer-size = 134217728;
   };

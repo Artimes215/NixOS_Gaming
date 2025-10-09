@@ -60,13 +60,16 @@ in
         "systemctl --user start hyprpolkitagent &"
         "systemctl --user enable --now hypridle.service &"
 	      "hyprctl setcursor phinger-cursors-light 14"
-        "qs -c caelestia &"
+        
+        # "qs -c caelestia &"
+        "uwsm app -- caelestia shell"
       ];
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
 	      # ",prefered,auto,1" #Default everything
         ",1920x1080,auto,1"
+        # ",2560x1440@240,auto,1"
       ];
 
       env = [
@@ -107,6 +110,10 @@ in
         gaps_out = gaps-out;
         border_size = border-size;
         layout = "master";
+      };
+
+      debug = {
+        disable_logs = false;
       };
 
       decoration = {
