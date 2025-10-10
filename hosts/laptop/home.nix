@@ -6,8 +6,6 @@
 
         # System
         ../../home/system/hyprland
-        ../../home/system/hypridle
-        ../../home/system/hyprlock
         ../../home/system/cursor
         ../../home/system/fish-shell
         ../../home/system/neofetch

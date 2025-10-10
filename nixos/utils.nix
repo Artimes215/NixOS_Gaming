@@ -122,7 +122,7 @@ in
   # Security
   security = {
     # Allows Wayland lockers to unlock the screen
-    pam.services.hyprlock.text = "auth include login";
+    # pam.services.hyprlock.text = "auth include login";
 
     # Userland niceness?
     rtkit.enable = true;

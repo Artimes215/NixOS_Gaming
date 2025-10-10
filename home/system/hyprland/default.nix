@@ -58,10 +58,8 @@ in
       exec-once = [
         "dbus-update-activation-environment --systemd --all &"
         "systemctl --user start hyprpolkitagent &"
-        "systemctl --user enable --now hypridle.service &"
 	      "hyprctl setcursor phinger-cursors-light 14"
         
-        # "qs -c caelestia &"
         "uwsm app -- caelestia shell"
       ];
 

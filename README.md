@@ -4,7 +4,7 @@
 </center>
 
 > [!NOTE]
-> This Nix configuration is possible thanks to [soramanew](https://github.com/soramanew) and their work creating (Calestia)[https://github.com/caelestia-dots/shell].  All I have done is use it and made some minor modifications elsewhere to put together a working system for myself.
+> This Nix configuration is possible thanks to [soramanew](https://github.com/soramanew) and their work creating [Caelestia](https://github.com/caelestia-dots/shell).  All I have done is use it and made some minor modifications elsewhere to put together a working system for myself.
 
 # Installation
 Presuming you're starting from a live boot with nothing yet done to your machine, you'll want to install NixOS on your machine from a **minimal installation**.
