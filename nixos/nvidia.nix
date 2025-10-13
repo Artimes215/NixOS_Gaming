@@ -41,6 +41,9 @@ in
     # Wayland support for Electron apps
     NIXOS_OZONE_WL = "1";
 
+    # Steam
+    STEAM_FORCE_DESKTOPUI_SCALING = "1";
+
     # Enables G-Sync if applicable
     __GL_GSYNC_ALLOWED = "1";
 

@@ -10,8 +10,7 @@
         ../../home/system/fish-shell
         ../../home/system/neofetch
         ../../home/system/git
-        ../../home/system/java
-        ../../home/system/clang
+        ../../home/system/development
 
         # Programs
 	    ../../home/programs/caelestia
@@ -29,14 +28,6 @@
         packages = with pkgs; [
             # Apps
             brave
-
-            # Development - Languages/Tools
-            premake5
-            nodejs
-            python3
-
-            # Development - IDE
-            vscode
 
             # Utilities
             grc

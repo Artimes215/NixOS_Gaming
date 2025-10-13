@@ -10,7 +10,7 @@
         ../../home/system/fish-shell
         ../../home/system/neofetch
         ../../home/system/git
-        ../../home/system/java
+        ../../home/system/development
 
         # Programs
         ../../home/programs/caelestia
