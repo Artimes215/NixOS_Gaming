@@ -19,6 +19,7 @@
     ../../nixos/hyprland.nix
     ../../nixos/virtualization.nix
     ../../nixos/gaming.nix
+    ../../nixos/thunar.nix
 
     # Machine-specific hardware configuration
     ./hardware-configuration.nix

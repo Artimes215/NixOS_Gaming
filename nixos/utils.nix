@@ -9,6 +9,20 @@ let
   autoUpgrade = config.var.autoUpgrade;
 in
 {
+  # Packages
+  environment.systemPackages = with pkgs; [
+    hyprland-qtutils
+    xdg-utils
+
+    fd
+    bc
+    wget
+    curl
+
+    gcc
+    git-ignore
+  ];
+
   # Networking
   networking.hostName = hostname;
   networking.networkmanager.enable = true;
@@ -84,19 +98,6 @@ in
     BROWSER = "brave";
   };
   
-  environment.systemPackages = with pkgs; [
-    hyprland-qtutils
-    xdg-utils
-
-    fd
-    bc
-    wget
-    curl
-
-    gcc
-    git-ignore
-  ];
-
   # Documentation - Enables quicker rebuilding?
   documentation = {
     enable = true;
@@ -118,6 +119,8 @@ in
     };
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+
+  
 
   # Security
   security = {

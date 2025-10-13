@@ -6,12 +6,6 @@
 
 	programs.caelestia = {
 		enable = true;
-	
-		systemd = {
-			enable = true;
-			target = "graphical-session.target";
-			environment = [];
-		};
 
 		cli = {
 			enable = true;
@@ -20,11 +14,46 @@
 		};
 	
 		settings = {
+			appearance = {
+				anim = {
+					durations = {
+						scale = 1;
+					};
+				};
+
+				font = {
+					size = {
+						scale = 1;
+					};
+				};
+
+				padding.scale = 1;
+				rounding.scale = 1;
+				spacing.scale = 1;
+
+				transparency = {
+					enabled = false;
+					base = 0.85;
+					layers = 0.4;
+				};
+			};
+
 			general = {
 				apps = {
 					terminal = [ "ghostty" ];
 					audio = [ "pavucontrol" ];
 					explorer = [ "thunar" ];
+				};
+
+				idle = {
+					lockBeforeSleep = true;
+
+					timeouts = [
+						{
+							timeout = 100;
+							idleAction = "lock";
+						}
+					];
 				};
 			};
 
@@ -113,7 +142,7 @@
 			};
 
 			lock = {
-				maxNotifs = 5;
+				recolourLogo = false;
 			};
 
 			notifs = {
