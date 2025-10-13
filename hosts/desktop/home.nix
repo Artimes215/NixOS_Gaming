@@ -11,6 +11,7 @@
         ../../home/system/neofetch
         ../../home/system/git
         ../../home/system/java
+        ../../home/system/clang
 
         # Programs
 	    ../../home/programs/caelestia

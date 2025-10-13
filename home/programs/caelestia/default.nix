@@ -32,9 +32,9 @@
 				spacing.scale = 1;
 
 				transparency = {
-					enabled = false;
+					enabled = true;
 					base = 0.85;
-					layers = 0.4;
+					layers = 0.8;
 				};
 			};
 
