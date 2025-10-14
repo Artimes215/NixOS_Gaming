@@ -8,6 +8,9 @@ in
       # Kill active window
       "$mod, Q, killactive"
 
+      # Switch to the previous (most recently used) workspace
+      "ALT, TAB, workspace, previous"
+
       # Bindings to open applications
       "$mod, C, exec, uwsm app -- code"         # Open VS Code
       "$mod, SPACE, exec, uwsm app -- ghostty"  # Open Ghostty terminal
