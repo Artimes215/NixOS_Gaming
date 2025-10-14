@@ -6,20 +6,20 @@
 
   imports = [
     # System configurations
-    ../../nixos/boot-manager.nix
-    ../../nixos/nvidia.nix
-    ../../nixos/audio.nix
-    ../../nixos/bluetooth.nix
-    ../../nixos/fonts.nix
-    ../../nixos/home-manager.nix
-    ../../nixos/nix.nix
-    ../../nixos/sddm.nix
-    ../../nixos/users.nix
-    ../../nixos/utils.nix
-    ../../nixos/hyprland.nix
-    ../../nixos/virtualization.nix
-    ../../nixos/gaming.nix
-    ../../nixos/thunar.nix
+    ../../home/nixos/boot-manager.nix
+    ../../home/nixos/nvidia.nix
+    ../../home/nixos/audio.nix
+    ../../home/nixos/bluetooth.nix
+    ../../home/nixos/fonts.nix
+    ../../home/nixos/home-manager.nix
+    ../../home/nixos/nix.nix
+    ../../home/nixos/sddm.nix
+    ../../home/nixos/users.nix
+    ../../home/nixos/utils.nix
+    ../../home/nixos/hyprland.nix
+    ../../home/nixos/virtualization.nix
+    ../../home/nixos/gaming.nix
+    ../../home/nixos/thunar.nix
 
     # Machine-specific hardware configuration
     ./hardware-configuration.nix
