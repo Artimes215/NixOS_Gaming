@@ -1,11 +1,3 @@
-# Check if hostname argument is provided
-if [ -z "$1" ]; then
-  echo "Usage: $0 <hostname>"
-  exit 1
-fi
-
-HOSTNAME=$1
-
 # Stage changes to git - rebuilding can break if this isn't done.
 git add .
 
@@ -37,5 +29,5 @@ echo " - Copying complete."
 echo ""
 
 # Rebuild nixos
-echo "Rebuilding nixos using the flake with hostname: $HOSTNAME"
-sudo nixos-rebuild switch --flake ~/.config/nixos#$HOSTNAME
+echo "Rebuilding nixos using the flake."
+sudo nixos-rebuild switch --flake ~/.config/nixos#athena

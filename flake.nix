@@ -54,25 +54,6 @@
           ./hosts/desktop/configuration.nix
         ];
       };
-
-      artemis = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          {
-            nixpkgs.overlays = [ ];
-            _module.args = { inherit inputs; };
-          }
-
-          {
-            environment.systemPackages = [
-              
-            ];
-          }
-
-          inputs.home-manager.nixosModules.home-manager
-          ./hosts/laptop/configuration.nix
-        ];
-      };
     };
   };
 }

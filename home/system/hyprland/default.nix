@@ -95,6 +95,8 @@ in
 
        "STEAM_FORCE_DESKTOPUI_SCALING,1"
        "STEAM_USE_MANGOAPP,0"
+       "STEAM_FRAME_FORCE_CLOSE,1"  # Prevents UI hangs
+       "STEAM_RUNTIME,1"            # Use Steam's runtime
       ];
 
       cursor = {

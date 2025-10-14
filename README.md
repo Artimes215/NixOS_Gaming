@@ -42,20 +42,11 @@ sudo cp /etc/nixos/hardware-configuration.nix ./.config/nixos/hosts/desktop
 
 Now you may proceed with the initial installation:
 ```sh
-./install.sh athena
+./install.sh
 ```
 
 The initial installation process **will** take a fair amount of time as it downloads and installs all necessary packages and dependencies.
 > Expect this to take around 10 to 20 minutes on a fresh system.
-
-
-### Available Host Configurations
-There are two included hosts that you need to be mindful of; one for a desktop configuration and one for a laptop configuration.
-
-While it isn't *required*, it's strongly advised that you take a look at either of them and modify them to your needs.
-
-> [!NOTE]
-> This will be removed in the future and the repository will be updated to default to a single system.
 
 
 
