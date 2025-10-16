@@ -13,14 +13,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    astal = {
-      url = "github:aylur/astal";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     caelestia-shell = {
       url = "github:caelestia-dots/shell";
       # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     spicetify-nix = {

@@ -1,25 +1,58 @@
 { lib, pkgs, config, ... }:
 let
-  nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.beta;
+  nvidiaDriverChannel = config.boot.kernelPackages.nvidiaPackages.stable;
 in
 {
-  # Xorg & Wayland Video Drivers
-  services.xserver.videoDrivers = [ "nvidia" ];
+  # Conf for proprietary packages
+  nixpkgs.config = {
+    nvidia.acceptLicense = true;
+    allowUnfree = true;
+  };
 
-  # Kernel params for better Wayland & Hyprland integration
-  boot.kernelParams = [
-    # Enable mode setting for Wayland
-    "nvidia-drm.modeset=1"
+  # Nix cache for CUDA
+  nix.settings = {
+    substituters = [ "https://cuda-maintainers.cachix.org" ];
+    trusted-public-keys = [
+      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
+    ];
+  };
 
-    # Improves resume after sleep
-    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  # Additional System Packages
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    
+    glxinfo
 
-    # Performance & Power optimizations
-    "nvidia.NVreg_RegistryDWords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMixerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3"
+    libva-utils
   ];
 
-  # Blacklist nouveau to avoid conflicts
-  boot.blacklistedKernelModules = [ "nouveau" ];
+  # Xorg & Wayland Video Drivers
+  services.xserver = {
+    enable = true;
+
+    videoDrivers = [ "nvidia" ];
+  };
+
+  # Boot Config & Parameters
+  boot = {
+    # Kernel params for better Wayland & Hyprland integration
+    kernelParams = [
+      # Enable mode setting for Wayland
+      "nvidia-drm.modeset=1"
+
+      # Improves resume after sleep
+      "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+
+      # Performance & Power optimizations
+      "nvidia.NVreg_RegistryDWords=PowerMizerEnable=0x1;PerfLevelSrc=0x2222;PowerMixerLevel=0x3;PowerMizerDefault=0x3;PowerMizerDefaultAC=0x3"
+    ];
+
+    # Kernel Modules to be loaded on boot
+    initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" ];
+
+    # Blacklist nouveau to avoid conflicts
+    blacklistedKernelModules = [ "nouveau" ];
+  };
 
   # Environment variables for better compatibility
   environment.variables = {
@@ -60,16 +93,10 @@ in
     MOZ_ENABLE_WAYLAND = "1";
   };
 
-  # Conf for proprietary packages
-  nixpkgs.config = {
-    nvidia.acceptLicense = true;
-    allowUnfree = true;
-  };
-
-  # Nvidia configuration
-  hardware = {    
+  # Hardware & Nvidia configuration
+  hardware = {
     nvidia = {
-      open = false;
+      open = true;
       nvidiaSettings = true;
 
       package = nvidiaDriverChannel;
@@ -80,8 +107,8 @@ in
       modesetting.enable = true;
    
       powerManagement = {
-        enable = true;
-        finegrained = true;
+        enable = false;
+        finegrained = false;
       };
 
       # Configuration for AMD iGPU paired with NVidia dGPU
@@ -100,34 +127,38 @@ in
 
     graphics = {
       enable = true;
-      package = nvidiaDriverChannel;
       enable32Bit = true;
+      
+      package = nvidiaDriverChannel;
 
       extraPackages = with pkgs; [
+        rocmPackages.clr
+
         nvidia-vaapi-driver
+
         vaapiVdpau
-        libvdpau-va-gl
+        
         mesa
+        
         egl-wayland
+        
         vulkan-loader
         vulkan-validation-layers
+        
         libva
+        libglvnd       # OpenGL support
+        libvdpau       # Video acceleration
+        libvdpau-va-gl
       ];
     };
   };
 
-  # Nix cache for CUDA
-  nix.settings = {
-    substituters = [ "https://cuda-maintainers.cachix.org" ];
-    trusted-public-keys = [
-      "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
-    ];
-  };
+  # Enable NVIDIA Persistence Daemon (useful for stability with high-performance GPUs)
+  systemd.services.nvidia-persistenced = {
+    enable = true;
 
-  # Additional useful packages
-  environment.systemPackages = with pkgs; [
-    vulkan-tools
-    glxinfo
-    libva-utils
-  ];
+    description = "NVIDIA Persistence Daemon";
+    
+    wantedBy = [ "multi-user.target" ];
+  };
 }

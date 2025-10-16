@@ -38,10 +38,7 @@
 
       package = pkgs.steam.override {
         extraPkgs = pkgs: with pkgs; [
-          vulkan-loader  # Required for Vulkan graphics
-          libglvnd       # OpenGL support
-          libvdpau       # Video acceleration
-          libva          # Video acceleration
+          
         ];
       };
     };
