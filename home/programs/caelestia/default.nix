@@ -83,7 +83,7 @@
 					activeIndicator = true;
 					activeLabel = "󰮯 ";
 					activeTrail = false;
-					label = "  ";
+					label = "󰮯 ";
 					occupiedBg = false;
 					occupiedLabel = "󰮯 ";
 					rounded = true;

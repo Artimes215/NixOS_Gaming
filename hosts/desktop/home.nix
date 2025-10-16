@@ -13,6 +13,7 @@
         ../../home/system/development
 
         # Programs
+        ../../home/programs/brave
 	    ../../home/programs/caelestia
         ../../home/programs/discord
         ../../home/programs/ghostty
@@ -27,7 +28,7 @@
         # Packages
         packages = with pkgs; [
             # Apps
-            brave
+            # brave
 
             # Utilities
             grc
@@ -45,6 +46,8 @@
             ddcutil
             brightnessctl
             imagemagick
+
+            pkg-config
         ];
 
         # State version - don't touch this

@@ -9,6 +9,15 @@
     clang
     clang-tools  # Includes clang-tidy, clang-format, etc.
     premake5     # Build system for C++
+    gnumake
+    cmake
+
+    mesa
+    libGL.dev
+    libGL
+    libGLU
+    glfw
+    glm
 
     # JavaScript/TypeScript
     nodejs       # Node.js runtime
@@ -28,5 +37,10 @@
   # Configurations
   programs.java = {
     enable = true;  # Java runtime and tools
+  };
+
+  # Set PKG_CONFIG_PATH for OpenGL pkg-config
+  home.sessionVariables = {
+    PKG_CONFIG_PATH = "${pkgs.libGL.dev}/lib/pkgconfig:$PKG_CONFIG_PATH";
   };
 }
