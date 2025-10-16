@@ -59,3 +59,35 @@ Ths install script will likely take several minutes.
 
 The installer will create symlinks and overwrite existing files.
 > Please backup your current configs before installing.
+
+
+
+## Installing Unpackaged VS Code Extensions
+Generally, VS Code extensions can be added by adding `<author>.<package-name>` to the ``programs.vscode.extensions`` array in the [development/default.nix](./home/system/development/default.nix) file.
+
+You can find a list of all pre-packaged extensions via [search.nixos.com](https://search.nixos.org/packages?channel=25.05&sort=alpha_asc&query=vscode-extensions).
+
+In the case where you use one or more extensions that aren't pre-packaged there, you can have Nix fetch them and install them for you by providing the following declaration in ``development/default.nix``.
+
+```nix
+{
+    name = "extension-name";
+    publisher = "extension-author";
+    version = "extension-version";
+    sha256 = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=;
+}
+```
+
+To get the correct sha256 hash to use, you can use the following shell command:
+```sh
+nix-prefetch-url "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/<EXTENSION_AUTHOR>/vsextensions/<EXTENSION_NAME>/<EXTENSION_VERSION>/vspackage" | xargs -I {} nix hash to-sri --type sha256 {}
+```
+
+Which should give you a valid sha256 hash output:
+```sh
+[jess@athena:~/.config/nixos]$ nix-prefetch-url "https://marketplace.visualstudio.com/_apis/public/gallery/publishers/alexandernanberg/vsextensions/horizon-theme-vscode/1.0.1/vspackage" | xargs -I {} nix hash to-sri --type sha256 {}
+path is '/nix/store/4iq3yz8j5afyqcicirszshkqcz49qvja-vspackage'
+sha256-jdtc/v4aX5wAjcs0bIpL808l4EA3o362u0sgzas27YU=
+```
+
+Once done, simply rebuild your system via the included [installation script](./install.sh).
