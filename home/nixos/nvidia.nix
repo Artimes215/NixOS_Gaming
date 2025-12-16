@@ -91,6 +91,9 @@ in
 
     # Wayland support for Firefox
     MOZ_ENABLE_WAYLAND = "1";
+
+    #Discord moment
+    OZONE_PLATFORM = "wayland";
   };
 
   # Hardware & Nvidia configuration

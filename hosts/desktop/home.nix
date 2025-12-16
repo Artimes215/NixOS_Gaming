@@ -18,6 +18,8 @@
         ../../home/programs/discord
         ../../home/programs/ghostty
         ../../home/programs/spicetify
+        #../../home/programs/firefox         #No home-manager, for themeing and for configurations
+        # ../../home/programs/OBS
     ];
 
     home = {
@@ -48,6 +50,19 @@
             imagemagick
 
             pkg-config
+
+            firefox
+
+            obs-studio
+
+            #davinci-resolve
+            shotcut
+
+            rofi
+
+            gparted
+
+
         ];
 
         # State version - don't touch this

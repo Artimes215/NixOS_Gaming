@@ -65,7 +65,7 @@ in
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
-	",prefered,auto,1" #Default everything
+	    ",prefered,auto,1" #Default everything
         #",1920x1080,auto,1"
         # ",2560x1440@240,auto,1"
       ];
@@ -89,7 +89,7 @@ in
        "WLR_DRM_NO_ATOMIC,1"
        "WLR_BACKEND,vulkan"
        "WLR_RENDERER,vulkan"
-       "WLR_NO_HARDWARE_CURSORS,1"
+      #  "WLR_NO_HARDWARE_CURSORS,1"
        "SDL_VIDEODRIVER,wayland,x11"
        "CLUTTER_BACKEND,wayland"
 

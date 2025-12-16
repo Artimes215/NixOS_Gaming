@@ -31,22 +31,29 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     nixcord.url = "github:kaylorben/nixcord";
+
+    millennium.url = "git+https://github.com/SteamClientHomebrew/Millennium";
   };
 
-  outputs = inputs@{ nixpkgs, spicetify-nix, ... }:
+  outputs = inputs@{ nixpkgs, spicetify-nix, millennium, ... }:
   {
     nixosConfigurations = {
       replicant = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          {
-            nixpkgs.overlays = [ ];
-            _module.args = { inherit inputs; };
-          }
+        {
+          nixpkgs.overlays = [
+            millennium.overlays.default
+          ];
+
+
+          _module.args = { inherit inputs; };
+        }
+
 
           {
             environment.systemPackages = [
-
+              
             ];
           }
 

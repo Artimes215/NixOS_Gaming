@@ -29,6 +29,16 @@
     ./variables.nix
   ];
 
+  #SSD addition:
+  fileSystems."/games" = {
+    device = "/dev/disk/by-label/GAMES";
+    fsType = "ext4";
+  };
+
+  # services.udisks2.enable = true;
+
+
+
   # Steam installation here since it has linking issues and w/e
   programs = {
     steam = {
@@ -38,7 +48,7 @@
 
       package = pkgs.steam.override {
         extraPkgs = pkgs: with pkgs; [
-          
+          # steam-millennium
         ];
       };
     };

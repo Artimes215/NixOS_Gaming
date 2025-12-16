@@ -1,9 +1,13 @@
+{ config, pkgs, lib, ... }:
 {
   security.rtkit.enable = true;
   
   services.pulseaudio = {
     enable = false;
   };
+
+  
+
 
   services.pipewire = {
     enable = true;
@@ -12,15 +16,20 @@
     alsa.support32Bit = true;
 
     pulse.enable = true;
-    jack.enable = true;
+    jack.enable = false;
 
     wireplumber = {
       enable = true;
-      extraConfig = {
-        "10-disable-camera" = {
-          "wireplumber.profiles" = { main."monitor.libcamera" = "disabled"; };
-        };
-      };
+     #extraConfig = {
+     #  "10-disable-camera" = {
+     #    "wireplumber.profiles" = { main."monitor.libcamera" = "disabled"; };
+     #  };
+     #};
     };
+
+
   };
+
+  
+
 }

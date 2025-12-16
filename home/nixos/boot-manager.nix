@@ -34,28 +34,29 @@
       };
 
       loader = {
-        grub.extraConfig = ''
-            GRUB_TIMEOUT_STYLE=hidden
-            GRUB_HIDDEN_TIMEOUT_QUIET=true
-          '';
-        timeout = 0;
+        #grub.extraConfig = ''
+        #    GRUB_TIMEOUT_STYLE=hidden
+        #    GRUB_HIDDEN_TIMEOUT_QUIET=true
+        #  '';
+        #timeout = 0;
 
-        grub = {
-            enable = true;
-            useOSProber = false;
-            splashImage = null;
+        #grub = {
+            #enable = true;
+            #useOSProber = false;
+            #splashImage = null;
             
-            efiSupport = false;
+            #efiSupport = false;
             # efiInstallAsRemovable = true;
 
-            device = "/dev/sda";
+            #device = "/dev/sda";
             # device = "nodev";
-        };
+        #};
 
-        # efi = {
-        #   canTouchEfiVariables = false; 
+        systemd-boot.enable = true;
+        efi = {
+          canTouchEfiVariables = true; 
         #   efiSysMountPoint = "/boot"; 
-        # };
+        };
       };
     };
 }
