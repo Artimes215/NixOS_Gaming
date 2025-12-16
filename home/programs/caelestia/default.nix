@@ -158,13 +158,13 @@
 			};
 
 			paths = {
-				mediaGif = "root:/assets/bongocat.gif";
-				sessionGif = "root:/assets/kurukuru.gif";
+				mediaGif = "~/.config/nixos/assets/Animations/MediaPlayer.gif";
+				sessionGif = "~/.config/nixos/assets/Animations/ShutdownShell.gif";
 				wallpaperDir = "~/Pictures/Wallpapers";
 			};
 
 			services = {
-				weatherLocation = "arizona";
+				weatherLocation = "louisville"; #Used to be Arizona
 
 				useFahrenheit = true;
 				useTwelveHourClock = false;

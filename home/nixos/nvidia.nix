@@ -89,9 +89,6 @@ in
     # Config for new Nvidia driver
     NVD_BACKEND = "direct";
 
-    # Wayland support for Firefox
-    MOZ_ENABLE_WAYLAND = "1";
-
     #Discord moment
     OZONE_PLATFORM = "wayland";
   };

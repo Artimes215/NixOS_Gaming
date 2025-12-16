@@ -8,11 +8,12 @@
     {
         enable = true;
 
-        theme = spicePkgs.themes.dribbblish;
-        colorScheme = "catppuccin-macchiato";
+        theme = spicePkgs.themes.catppuccin;
+        colorScheme = "mocha";
 
         enabledExtensions = with spicePkgs.extensions; [
             adblockify
+            hidePodcasts
         ];
     };
 }

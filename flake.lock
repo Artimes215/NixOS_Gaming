@@ -77,6 +77,22 @@
         "type": "github"
       }
     },
+    "ff-ultima": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1765809663,
+        "narHash": "sha256-jmT6tWua3oy6ESE98XrC0PsnmmkL6p2LYuvDmieQYxw=",
+        "owner": "soulhotel",
+        "repo": "FF-ULTIMA",
+        "rev": "f55dd7027c93089e4f27204ae6050e0255648527",
+        "type": "github"
+      },
+      "original": {
+        "owner": "soulhotel",
+        "repo": "FF-ULTIMA",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -659,6 +675,7 @@
     "root": {
       "inputs": {
         "caelestia-shell": "caelestia-shell",
+        "ff-ultima": "ff-ultima",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "millennium": "millennium",
@@ -697,15 +714,16 @@
         "systems": "systems_2"
       },
       "locked": {
-        "lastModified": 1754196919,
-        "narHash": "sha256-0zATw65mNql9H8e7HWVBPpijMSbDVeK7JNivRBcUScM=",
+        "lastModified": 1743595372,
+        "narHash": "sha256-e3x1mhpPpYgyyin9j/VbrBpOT5PFpEfx2hkxVZuJZhg=",
         "owner": "Gerg-L",
         "repo": "spicetify-nix",
-        "rev": "24fcb94f7792ab755b933e1c9516996530ac1fbd",
+        "rev": "543f12dd14c62ddee79ab79fbfd8726f312b89ff",
         "type": "github"
       },
       "original": {
         "owner": "Gerg-L",
+        "ref": "24.11",
         "repo": "spicetify-nix",
         "type": "github"
       }
