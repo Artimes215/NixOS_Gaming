@@ -36,7 +36,7 @@
   outputs = inputs@{ nixpkgs, spicetify-nix, ... }:
   {
     nixosConfigurations = {
-      athena = nixpkgs.lib.nixosSystem {
+      replicant = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           {

@@ -65,8 +65,8 @@ in
 
       monitor = [
         # "DP-1,2560x1440@240,auto,1" # Primary monitor
-	      # ",prefered,auto,1" #Default everything
-        ",1920x1080,auto,1"
+	",prefered,auto,1" #Default everything
+        #",1920x1080,auto,1"
         # ",2560x1440@240,auto,1"
       ];
 

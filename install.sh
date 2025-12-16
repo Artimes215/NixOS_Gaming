@@ -30,4 +30,4 @@ echo ""
 
 # Rebuild nixos
 echo "Rebuilding nixos using the flake."
-sudo nixos-rebuild switch --flake ~/.config/nixos#athena
+sudo nixos-rebuild switch --flake ~/.config/nixos#replicant

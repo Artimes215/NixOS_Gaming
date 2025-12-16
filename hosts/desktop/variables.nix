@@ -1,8 +1,8 @@
 { config, lib, ... }:
 {
   config.var = {
-    hostname = "athena";
-    username = "jess";
+    hostname = "replicant";
+    username = "yharnam";
 
     # Upgrade/GC opt-ins
     autoUpgrade = false;
@@ -13,13 +13,12 @@
 
     # Git config
     git = {
-      username = "toxocious";
-      email = "toxocious@gmail.com";
+      username = "TyPolley";
+      email = "polleykia@gmail.com";
     };
 
     # Locale & Keyboard
-    location = "Phoenix";
-    timeZone = "America/Phoenix";
+    timeZone = "America/Kentucky/Louisville";
     defaultLocale = "en_US.UTF-8";
     extraLocale = "en_US.UTF-8";
     keyboardLayout = "us";
