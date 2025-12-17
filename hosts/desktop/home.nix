@@ -51,18 +51,15 @@
 
             pkg-config
 
-            firefox
+            r2modman
 
             obs-studio
 
             #davinci-resolve
             shotcut
 
-            rofi
 
-            gparted
-
-
+            firefox
         ];
 
         # State version - don't touch this
