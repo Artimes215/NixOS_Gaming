@@ -1,45 +1,31 @@
 { inputs, pkgs, config, ... }:
 {
-
-  # home.packages = [ pkgs.vesktop ];
-
-  imports = [ inputs.nixcord.homeModules.nixcord ];
-
-  programs.nixcord = {
+  # Home Manager's Vesktop module
+  programs.vesktop = {
     enable = true;
-    discord.enable = false;
-    vesktop.enable = true;
-    vesktop.package = pkgs.vesktop;
 
-    config = {
+    # Vesktop app settings (hardware acceleration for GPU usage, discord branch)
+    settings = {
+      hardwareAcceleration = true;
+      discordBranch = "stable";
+    };
+
+    # Vencord settings
+    vencord.settings = {
       plugins = {
-        # Force animations to played on everything that uses animations.
-        alwaysAnimate.enable = true;
+        # Force animations to play on everything that uses animations.
+        AlwaysAnimate = {
+          enabled = true;
+        };
 
         # Always expands role list in profile popouts.
-        alwaysExpandRoles.enable = true;
-
-        # Handle trust based popups for files and links.
-        alwaysTrust = {
-          enable = true;
-
-          domain = true;
-          file = true;
+        AlwaysExpandRoles = {
+          enabled = true;
         };
 
-        # Use anonymous file names for uploads.
-        anonymiseFileNames = {
-          enable = true;
-
-          anonymiseByDefault = true;
-          method = "timestamp";
-          randomisedLength = 16;
-        };
-
-        # Show server folders on dedicated sidebar, and adds folder related improvements.
-        betterFolders = {
-          enable = true;
-
+        # Folder management for servers in the sidebar
+        BetterFolders = {
+          enabled = true;
           sidebar = true;
           sidebarAnim = true;
 
@@ -49,206 +35,136 @@
           forceOpen = true;
         };
 
-        # Changes GIF alt text from 'GIF' to containing the GIF's tags/filename.
-        betterGifAltText.enable = true;
+        BetterGifAltText = { enabled = true; };
 
-        # Enhances the sessions menu and checks for new sessions in the background - displays notification on newly detected sessions.
-        betterSessions = {
-          enable = true;
-
+        BetterSessions = {
+          enabled = true;
           backgroundCheck = true;
           checkInterval = 15;
         };
 
-        # Enhances the settings menu opening experience.
-        betterSettings.enable = true;
+        BetterSettings = { enabled = true; };
 
-        # Adds a call timer to all VCs.
-        callTimer = {
-          enable = true;
-
+        CallTimer = {
+          enabled = true;
           format = "stopwatch";
         };
 
-        # Removes tracking and telemetry from URLs.
-        clearURLs.enable = true;
+        ClearURLs = { enabled = true; };
 
-        # Disables console messages/errors, Discord's loggers, Spotify logger, and allows for whitelisted loggers.
-        consoleJanitor = {
-          enable = true;
-
+        ConsoleJanitor = {
+          enabled = true;
           disableLoggers = true;
           disableSpotifyLogger = true;
 
-          whitelistedLoggers = "
+          whitelistedLoggers = ''
             GatewaySocket;
             Routing/Utils
-          ";
+          '';
         };
 
-        # Disables getting kicked from DM voice calls after going AFK.
-        disableCallIdle.enable = true;
+        DisableCallIdle = { enabled = true; };
 
-        # Rounds relative timestamps down (ex: 7.6y becomes 7y instead of 8y).
-        dontRoundMyTimestamps.enable = false;
+        DontRoundMyTimestamps = { enabled = false; };
 
-        # Allows you to clone emotes and stickers to your own server.
-        emoteCloner.enable = true;
+        ExpressionCloner = { enabled = true; };
 
-        # Prevents images from being loaded as WEBP, which can cause quality loss.
-        fixImagesQuality.enable = true;
+        FixImagesQuality = { enabled = true; };
 
-        # Force owner crown even on large servers.
-        forceOwnerCrown.enable = true;
+        ForceOwnerCrown = { enabled = true; };
 
-        # Shows length of friendship on user popout.
-        friendsSince.enable = true;
+        FriendsSince = { enabled = true; };
 
-        # Display the server's online and total member count.
-        memberCount = {
-          enable = true;
-
+        MemberCount = {
+          enabled = true;
           toolTip = true;
           memberList = true;
         };
 
-        # Show user avatars inside of mentions.
-        mentionAvatars.enable = true;
+        MentionAvatars = { enabled = true; };
 
-        # Attempts to log deleted and edited messages.
-        messageLogger = {
-          enable = true;
-
+        MessageLogger = {
+          enabled = true;
           logDeletes = true;
           logEdits = true;
           inlineEdits = true;
-
           ignoreBots = true;
         };
 
-        # Hides incoming friend requests, message requests, and nitro offers.
-        noPendingCount = {
-          enable = true;
-
+        NoPendingCount = {
+          enabled = true;
           hideFriendRequestsCount = false;
           hideMessageRequestCount = false;
           hidePremiumOffersCount = true;
         };
 
-        # Strip canary/ptb from message links.
-        normalizeMessageLinks.enable = true;
+        NormalizeMessageLinks = { enabled = true; };
 
-        # View the permissions that a user or channel has, and the roles of a server.
-        permissionsViewer.enable = true;
+        PermissionsViewer = { enabled = true; };
 
-        # Let's you preview your message before sending it.
-        previewMessage.enable = true;
+        PreviewMessage = { enabled = true; };
 
-        # Notifies you when a friend, group chat, or server removes you.
-        relationshipNotifier = {
-          enable = true;
+        RelationshipNotifier = {
+          enabled = true;
           notices = true;
         };
 
-        # Replaces the default search engine from Google to DuckDuckGo
-        replaceGoogleSearch = {
-          enable = true;
+        ReplyTimestamp = { enabled = true; };
 
-          customEngineName = "DuckDuckGo";
-          customEngineURL = "https://duckduckgo.com";
-        };
+        ReverseImageSearch = { enabled = true; };
 
-        # Shows a timestamp on replied-message previews.
-        replyTimestamp.enable = true;
+        ServerInfo = { enabled = true; };
 
-        # Add ImageSearch to image context menus for reverse image searching.
-        reverseImageSearch.enable = true;
+        ShowHiddenChannels = { enabled = true; };
 
-        # Allows you to view information about a server.
-        serverInfo.enable = true;
-
-        # Show channels that you do not have access to view.
-        showHiddenChannels.enable = true;
-
-        # Display usernames next to nicknames.
-        showMeYourName = {
-          enable = true;
-
+        ShowMeYourName = {
+          enabled = true;
           mode = "user-nick";
         };
 
-        # Add a toggle to the chat bar to allow sending silent messages.
-        silentMessageToggle = {
-          enable = true;
-
+        SilentMessageToggle = {
+          enabled = true;
           autoDisable = false;
         };
 
-        # Adds functionality to hide that you are typing.
-        silentTyping = {
-          enable = true;
-
+        SilentTyping = {
+          enabled = true;
           showIcon = true;
           contextMenu = true;
-
           isEnabled = true;
         };
 
-        # Add an indicator to the server's channel list if someone is typing.
-        typingIndicator = {
-          enable = true;
-
+        TypingIndicator = {
+          enabled = true;
           includeMutedChannels = true;
           includeBlockedUsers = true;
-
           indicatorMode = "both";
         };
 
-        # Show avatars in the typing indicator.
-        typingTweaks = {
-          enable = true;
-
+        TypingTweaks = {
+          enabled = true;
           showAvatars = true;
           showRoleColors = false;
           alternativeFormatting = true;
         };
 
-        # Shows whether a user is currently in a voice channel somewhere on the profile.
-        userVoiceShow = {
-          enable = true;
-
+        UserVoiceShow = {
+          enabled = true;
           showInUserProfileModal = true;
           showInMemberList = true;
           showInMessages = true;
         };
 
-        # Fixes "Message could not be loaded" upon hovering over a reply.
-        validReply.enable = true;
+        ValidReply = { enabled = true; };
 
-        # Fixes mentions of unknown users showing up as "@unknown-user".
-        validUser.enable = true;
+        ValidUser = { enabled = true; };
 
-        # Makes avatars and banners on user profiles clickable.
-        viewIcons = {
-          enable = true;
-
+        ViewIcons = {
+          enabled = true;
           format = "png";
         };
       };
     };
   };
-
-  xdg.desktopEntries.vesktop = {
-    name = "Vesktop";
-    genericName = "Discord Client";
-    comment = "Third-party Discord client";
-    exec = "vesktop --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland --disable-features=VaapiVideoDecode,VaapiVideoDecoder,UseChromeOSDirectVideoDecoder";
-    icon = "vesktop";
-    categories = [ "Network" "InstantMessaging" ];
-    terminal = false;
-
-  };
-
-
-
 }
+
