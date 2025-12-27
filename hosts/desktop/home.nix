@@ -20,6 +20,9 @@
         ../../home/programs/spicetify
         #../../home/programs/firefox         #No home-manager, for themeing and for configurations
         # ../../home/programs/OBS
+        # ../../home/programs/r2modman
+        # ../../home/programs/shotcut
+        ../../home/programs/language
     ];
 
     home = {
@@ -60,6 +63,9 @@
 
 
             firefox
+
+
+            steam-run
         ];
 
         # State version - don't touch this
